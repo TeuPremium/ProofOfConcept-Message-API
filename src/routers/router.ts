@@ -3,7 +3,7 @@ import pocController from "../controllers/pocController";
 
 const router: Router = Router();
 
-router.get("/", () => {console.log ("a")} )
+router.get("/", pocController.pocGet )
 
 
 

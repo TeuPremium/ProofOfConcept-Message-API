@@ -7,8 +7,9 @@ export class App{
 
     constructor(){
         this.server = express();
-        // this.cors();
         this.middleware();
+        this.router()
+        // this.cors();
     }
     
     // cors(){
