@@ -1,14 +1,14 @@
 import { Router, Request, Response} from "express";
 import pocController from "../controllers/pocController";
 
-const router: Router = Router();
+const pocRouter: Router = Router();
 
-router.get("/", pocController.pocGet )
+pocRouter.get("/jooj/", pocController.pocGet )
 
 
 
 console.log("chegamos no router")
 
 export {
-    router
+    pocRouter
 };

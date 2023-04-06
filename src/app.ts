@@ -1,5 +1,5 @@
 import express from "express";
-import { router } from "./routers/router";
+import { routes } from "./routers/routes";
 import cors from "cors"
 
 export class App{
@@ -9,15 +9,15 @@ export class App{
         this.server = express();
         this.middleware();
         this.router()
-        // this.cors();
+        this.cors();
     }
     
-    // cors(){
-    //     this.server.use(cors())
-    // }
+    cors(){
+        this.server.use(cors())
+    }
     
     public router(){
-        this.server.use(router)
+        this.server.use(routes)
     }
 
     private middleware(){
