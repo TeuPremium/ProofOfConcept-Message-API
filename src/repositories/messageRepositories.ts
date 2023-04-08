@@ -13,7 +13,37 @@ async function addMessage (to: string, from:string, message:string){
    }
 } 
 
+async function recievedMessages (email: string){
+    try {
+     const {rows} = await db.query(`
+        SELECT * FROM messages
+        WHERE "to" = $1
+     `, 
+     [ email ])
+
+     return rows
+    } catch (error) {
+     throw new Error("We could not find your messages. Try again later") 
+    }
+ } 
+
+ async function sentMessages (email: string){
+    try {
+     const {rows} = await db.query(`
+        SELECT * FROM messages
+        WHERE "from" = $1
+     `, 
+     [ email ])
+
+     return rows
+    } catch (error) {
+     throw new Error("We could not find your messages. Try again later") 
+    }
+ } 
+
 
 export default {
-    addMessage
+    addMessage,
+    recievedMessages,
+    sentMessages
 }

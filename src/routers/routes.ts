@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { pocRouter } from "./pocRouter";
+import {messageRouter} from "./messageRouter"
 
 
 const routes: Router = Router();
 
 
-routes.use("/", pocRouter)
+routes.use("/", messageRouter)
 
 export  {routes};
