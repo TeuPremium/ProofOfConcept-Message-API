@@ -7,7 +7,6 @@ export default function(schema: ObjectSchema){
         if (error){
             return res.status(422).send(error.details.map((e) => e.message))
         }
-        console.log("validatedSchema")
         next()
     }
 }

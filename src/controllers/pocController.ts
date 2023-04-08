@@ -3,10 +3,17 @@ import db from "../config/databaseConfig"
 
 async function pocPost(req: Request, res: Response){
     try {
-        const { rows } = await db.query(`select * from users`)
-        const user = rows[0]
+        const { to, from, message } = req.body
+        
+        await db.query(`
+        INSERT INTO messages
+        ("to", "from", "message" )
+        VALUES ($1,$2,$3)
+        `, [to, from, message ]
+    )
+
         return res.json(
-            user
+            {message: `Your message was sent to ${to}`}
         )
     } catch (error) {
         console.log(error)

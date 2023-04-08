@@ -5,7 +5,8 @@ import messageSchema from "../models/schemas/messageSchema"
 
 const pocRouter: Router = Router();
 
-pocRouter.post("/jooj/", validateSchema(messageSchema), pocController.pocPost )
+pocRouter.post("/message/", validateSchema(messageSchema), pocController.pocPost )
+pocRouter.get("/message/:id", pocController.pocPost )
 
 export {
     pocRouter
