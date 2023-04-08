@@ -1,0 +1,9 @@
+const PORT = 
+const DATABASE_URL=
+const NODE_ENV=
+
+export default{
+    PORT,
+    DATABASE_URL,
+    NODE_ENV
+}
