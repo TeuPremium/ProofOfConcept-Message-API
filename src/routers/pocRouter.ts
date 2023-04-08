@@ -1,13 +1,11 @@
 import { Router, Request, Response} from "express";
 import pocController from "../controllers/pocController";
+import validateSchema from "../middlewares/validateSchema"
+import messageSchema from "../models/schemas/messageSchema"
 
 const pocRouter: Router = Router();
 
-pocRouter.get("/jooj/", pocController.pocGet )
-
-
-
-console.log("chegamos no router")
+pocRouter.post("/jooj/", validateSchema(messageSchema), pocController.pocPost )
 
 export {
     pocRouter

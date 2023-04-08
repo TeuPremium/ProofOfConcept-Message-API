@@ -1,2 +1,4 @@
-/node_modules
-/build
+src/enviroment.ts
+node_modules
+build
+.env

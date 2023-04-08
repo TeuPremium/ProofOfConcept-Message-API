@@ -1,11 +1,21 @@
 import { Request, Response } from "express"
+import db from "../config/databaseConfig"
 
-function pocGet(req: Request, res: Response){
-    return res.json({
-        message: "jooj"
-    })
+async function pocPost(req: Request, res: Response){
+    try {
+        const { rows } = await db.query(`select * from users`)
+        const user = rows[0]
+        return res.json(
+            user
+        )
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send(error)
+    }
+
+      
 }
 
 export default{
-    pocGet
+    pocPost
 }
